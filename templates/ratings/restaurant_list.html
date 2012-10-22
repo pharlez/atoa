@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load url from future %}
+<h1>Restaurant List</h1>
+
+{% block content %}
+{% if item_list %}
+    <ul>
+    {% for item in item_list %}
+    <li>
+        <a href="/ratings/item/{{ item.name }}/">{{ item.name }}</a>
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No restaurants are available.</p>
+{% endif %}
+{% endblock %}

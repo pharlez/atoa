@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" />
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.css" />
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>{% block title %}A taste of Athens{% endblock %}</title>
+</head>
+
+<body>
+    <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+      {% block navbar %}
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">  
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">A Taste Of Athens</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/ratings/">Ratings</a></li>
+            </ul>
+        </div><!--/nav-collapse -->
+        </div>
+      </div>
+      {% endblock %}
+    </div>
+
+    <div id="content" class="container">
+        {% block content %}{% endblock %}
+    </div> <!-- /container -->
+
+    <!-- Javascript -->
+    <script src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+
+</body>
+</html>
