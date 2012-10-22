@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+*.pot
+.DS_Store
+*.swp
+manage.py
+sqlite3.db
+*.log
+*.sql
+*.sqlite
+local_settings.py
