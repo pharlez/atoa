@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User as GlobalUser
-from atasteofathens.ratings.models import User, Item
+from django.contrib.auth.models import User
+from atasteofathens.ratings.models import Item
 
 @login_required
 def index(request):
@@ -9,7 +9,7 @@ def index(request):
 
 @login_required
 def users(request):
-    user_list = GlobalUser.objects.all()
+    user_list = User.objects.all()
     return render(request, 'ratings/user_list.html', {'user_list': user_list})
 
 @login_required
