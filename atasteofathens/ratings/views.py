@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from atasteofathens.ratings.models import Item
+from atasteofathens.ratings.models import Restaurant
 
 @login_required
 def index(request):
@@ -21,7 +21,7 @@ def user_profile(request, user_name):
 def user_rate(request, user_name):
     u = get_object_or_404(User, username=user_name)
 
-    all_items = Item.objects.all()
+    all_items = Restaurant.objects.all()
 
     user_ratings = [(i.item, i.rating_value) for i in u.u_ratings.all()]
     rated_items = [x[0] for x in user_ratings]
@@ -35,5 +35,5 @@ def user_rate(request, user_name):
                               'user_ratings': user_ratings})
 @login_required
 def items(request):
-    item_list = Item.objects.all()
-    return render(request, 'ratings/restaurant_list.html', {'item_list': item_list})
+    restaurant_list = Restaurant.objects.all()
+    return render(request, 'ratings/restaurant_list.html', {'item_list': restaurant_list})
