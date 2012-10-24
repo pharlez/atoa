@@ -7,6 +7,9 @@ class Neighbourhood(models.Model):
     class Meta:
         ordering = ['name']
 
+    def __unicode__(self):
+        return self.name
+
 class Place(models.Model):
     address = models.CharField(max_length=200)
     neigbourhood = models.ForeignKey(Neighbourhood)
@@ -19,6 +22,9 @@ class RestaurantCat(models.Model):
 
     class Meta:
         ordering = ['name']
+
+    def __unicode__(self):
+        return self.name
 
 class Restaurant(Place):
     name = models.CharField(max_length=200, unique=True)
