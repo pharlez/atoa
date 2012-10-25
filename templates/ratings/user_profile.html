@@ -3,11 +3,15 @@
 <h1>User Profile</h1>
 
 {% block content %}
-<h3>User: {{ user.username }}</h3>
-<p>These are {{ user.username }}'s ratings so far:</p>
-<ul>
-{% for item in user.u_ratings.all %}
-    <li><b>{{ item.item }}</b> rated <em>{{ item.rating_value }}</em></li>
-{% endfor %}
-</ul>
+<h3>{{ user.username }}</h3>
+{% if user.u_ratings.all %}
+  <p>These are {{ user.username }}'s ratings so far:</p>
+  <ul>
+  {% for item in user.u_ratings.all %}
+    <li><b>{{ item.restaurant }}</b> rated <em>{{ item.rating_value }}</em></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>{{ user.username }} hasn't rated anything yet :(</p>
+{% endif %}
 {% endblock %}

@@ -27,7 +27,7 @@ class RestaurantCat(models.Model):
         return self.name
 
 class Restaurant(Place):
-    name = models.CharField(max_length=200, unique=True)
+    name = models.CharField(max_length=200)
     phone = models.CharField(max_length=20, blank=True)
     category = models.ForeignKey(RestaurantCat)
     PRICE_RANGES = (
@@ -37,7 +37,7 @@ class Restaurant(Place):
             (4, '$$$$'),
             (5, '$$$$$'),
     )
-    price = models.PositiveSmallIntegerField(choices=PRICE_RANGES, blank=True)
+    price = models.PositiveSmallIntegerField(choices=PRICE_RANGES, null=True, blank=True)
     # hours
     # attire
     good_for_groups = models.BooleanField(blank=True)
@@ -51,7 +51,7 @@ class Restaurant(Place):
             (2, 'average'),
             (3, 'high'),
     )
-    noise_level = models.PositiveSmallIntegerField(choices=NOISE_RANGES, blank=True)
+    noise_level = models.PositiveSmallIntegerField(choices=NOISE_RANGES, blank=True, null=True)
     # ambience
     wheelchair = models.BooleanField(blank=True)
 
@@ -67,4 +67,4 @@ class Rating(models.Model):
     rating_value = models.PositiveSmallIntegerField('Rating')
 
     def __unicode__(self):
-        return self.user.username + " has rated '" + self.item.name + "'"
+        return self.user.username + " has rated '" + self.restaurant.name + "'"

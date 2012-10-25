@@ -23,7 +23,7 @@ def user_rate(request, user_name):
 
     all_items = Restaurant.objects.all()
 
-    user_ratings = [(i.item, i.rating_value) for i in u.u_ratings.all()]
+    user_ratings = [(i.restaurant, i.rating_value) for i in u.u_ratings.all()]
     rated_items = [x[0] for x in user_ratings]
     no_rating = [(i, None) for i in all_items if i not in rated_items]
 
