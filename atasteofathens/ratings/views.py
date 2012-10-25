@@ -3,9 +3,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from atasteofathens.ratings.models import Restaurant
 
-@login_required
 def index(request):
-    return render(request, 'ratings/index.html')
+    if request.user.is_authenticated():
+        return render(request, 'ratings/user_profile.html', {'user': request.user})
+    else:
+        return render(request, 'ratings/index.html')
 
 @login_required
 def users(request):
@@ -33,7 +35,6 @@ def user_rate(request, user_name):
     return render(request, 'ratings/user_rate.html', 
                              {'user': u,
                               'user_ratings': user_ratings})
-@login_required
 def items(request):
     restaurant_list = Restaurant.objects.all()
     return render(request, 'ratings/restaurant_list.html', {'item_list': restaurant_list})
