@@ -121,7 +121,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'atasteofathens.ratings',
+    'atasteofathens.spots',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -153,4 +153,4 @@ LOGGING = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/ratings/'
+LOGIN_REDIRECT_URL = '/spots/'
