@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% block title %}User List{% endblock %}
+<h1>User List</h1>
+
+{% block content %}
+{% if user_list %}
+    <ul>
+    {% for user in user_list %}
+    <li>
+        {{ user.username }} 
+        <a href="/spots/user/{{ user.username }}/">profile</a>
+        |
+        <a href="/spots/user/{{ user.username }}/rate/">rate more</a>
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
+{% endblock %}
