@@ -5,5 +5,6 @@ urlpatterns = patterns('atasteofathens.spots.views',
         url(r'^users/$', 'users'),
         url(r'^user/(?P<user_name>\S+)/rate/$', 'user_rate'),
         url(r'^user/(?P<user_name>\S+)/$', 'user_profile'),
-        url(r'^restaurants/$', 'items'),
+        url(r'^restaurant/(?P<restaurant_slug>\S+)/$', 'restaurant_profile'),
+        url(r'^restaurants/$', 'restaurants'),
 )

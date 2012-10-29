@@ -5,7 +5,7 @@
 {% block content %}
 <h3>{{ user.username }}</h3>
 {% if user.u_ratings.all %}
-  <p>These are {{ user.username }}'s ratings so far:</p>
+  <p>These are your ratings so far:</p>
   <ul>
   {% for item in user.u_ratings.all %}
     <li><b>{{ item.restaurant }}</b> rated <em>{{ item.rating_value }}</em></li>

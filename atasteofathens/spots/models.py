@@ -13,7 +13,7 @@ class Neighbourhood(models.Model):
 
 class Place(models.Model):
     address = models.CharField(max_length=200)
-    neigbourhood = models.ForeignKey(Neighbourhood)
+    neighbourhood = models.ForeignKey(Neighbourhood)
 
     class Meta:
         abstract = True
