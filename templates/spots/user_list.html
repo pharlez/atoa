@@ -9,9 +9,9 @@
     {% for user in user_list %}
     <li>
         {{ user.username }} 
-        <a href="/ratings/user/{{ user.username }}/">profile</a>
+        <a href="/spots/user/{{ user.username }}/">profile</a>
         |
-        <a href="/ratings/user/{{ user.username }}/rate/">rate more</a>
+        <a href="/spots/user/{{ user.username }}/rate/">rate more</a>
     </li>
     {% endfor %}
     </ul>

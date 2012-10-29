@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 
-urlpatterns = patterns('atasteofathens.ratings.views',
+urlpatterns = patterns('atasteofathens.spots.views',
         url(r'^$', 'index'),
         url(r'^users/$', 'users'),
         url(r'^user/(?P<user_name>\S+)/rate/$', 'user_rate'),

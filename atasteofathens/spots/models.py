@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User as AuthUser
+from tools import unique_slugify
 
 class Neighbourhood(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -54,9 +55,16 @@ class Restaurant(Place):
     noise_level = models.PositiveSmallIntegerField(choices=NOISE_RANGES, blank=True, null=True)
     # ambience
     wheelchair = models.BooleanField(blank=True)
+    # create slug for urls
+    slug = models.SlugField(blank=True, db_index=True)
 
     class Meta:
         ordering = ['name']
+
+    def save(self, **kwargs):
+        slug_str = "%s" % (self.name)
+        unique_slugify(self, slug_str)
+        super(Restaurant, self).save()
 
     def __unicode__(self):
         return self.name

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load url from future %}
-<h1>Restaurant List</h1>
 
 {% block content %}
+<h3>Restaurant List</h3>
 {% if item_list %}
     <ul>
     {% for item in item_list %}
     <li>
-        <a href="/ratings/item/{{ item.name }}/">{{ item.name }}</a>
+        <a href="/spots/restaurant/{{ item.name }}/">{{ item.name }}</a>
     </li>
     {% endfor %}
     </ul>

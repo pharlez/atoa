@@ -1,4 +1,4 @@
-from atasteofathens.ratings.models import Neighbourhood, RestaurantCat, Restaurant, Rating
+from atasteofathens.spots.models import Neighbourhood, RestaurantCat, Restaurant, Rating
 from django.contrib import admin
 
 admin.site.register(Neighbourhood)
