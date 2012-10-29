@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/greenonion/dvp/django/atasteofathens/sqlite3.db', # Or path to database file if using sqlite3.
+        'NAME': '/home/thalis/neerbee/atasteofathens/sqlite3.db', # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -68,7 +68,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    "/home/greenonion/dvp/django/atasteofathens/media",
+    "/home/thalis/neerbee/media",
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -108,7 +108,7 @@ ROOT_URLCONF = 'atasteofathens.urls'
 WSGI_APPLICATION = 'atasteofathens.wsgi.application'
 
 TEMPLATE_DIRS = (
-        '/home/greenonion/dvp/django/atasteofathens/templates',
+        '/home/thalis/neerbee/templates',
 )
 
 INSTALLED_APPS = (
