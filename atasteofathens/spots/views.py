@@ -35,6 +35,10 @@ def user_rate(request, user_name):
     return render(request, 'spots/user_rate.html', 
                              {'user': u,
                               'user_ratings': user_ratings})
-def items(request):
+def restaurants(request):
     restaurant_list = Restaurant.objects.all()
     return render(request, 'spots/restaurant_list.html', {'item_list': restaurant_list})
+
+def restaurant_profile(request, restaurant_slug):
+    r = get_object_or_404(Restaurant, slug=restaurant_slug)
+    return render(request, 'spots/restaurant_profile.html', {'restaurant': r})
