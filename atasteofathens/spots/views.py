@@ -40,6 +40,6 @@ def spots(request):
     spot_list = Spot.objects.all()
     return render(request, 'spots/spot_list.html', {'item_list': spot_list})
 
-def restaurant_profile(request, spot_slug):
+def spot_profile(request, spot_slug):
     r = get_object_or_404(Spot, slug=spot_slug)
     return render(request, 'spots/spot_profile.html', {'spot': s})

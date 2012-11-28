@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns(
         'atasteofathens.spots.views',
-        url(r'^all/$', 'spots'),
+        url(r'^$', 'spots'),
         #url(r'^users/$', 'users'),
         #url(r'^user/(?P<user_name>\S+)/rate/$', 'user_rate'),
         #url(r'^user/(?P<user_name>\S+)/$', 'user_profile'),
