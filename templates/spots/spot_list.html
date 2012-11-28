@@ -2,16 +2,16 @@
 {% load url from future %}
 
 {% block content %}
-<h3>Restaurant List</h3>
+<h3>Spot List</h3>
 {% if item_list %}
     <ul>
     {% for item in item_list %}
     <li>
-        <a href="/spots/restaurant/{{ item.slug }}/">{{ item.name }}</a>
+        <a href="/spots/{{ item.slug }}/">{{ item.name }}</a>
     </li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No restaurants are available.</p>
+    <p>No spots are available.</p>
 {% endif %}
 {% endblock %}

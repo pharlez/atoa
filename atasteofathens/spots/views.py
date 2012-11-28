@@ -36,11 +36,10 @@ def user_rate(request, user_name):
                              {'user': u,
                               'user_ratings': user_ratings})
 """
-def restaurants(request):
-    restaurant_list = Spot.objects.all()
-    return render(request, 'spots/restaurant_list.html', {'item_list': restaurant_list})
-"""
-def restaurant_profile(request, restaurant_slug):
-    r = get_object_or_404(Restaurant, slug=restaurant_slug)
-    return render(request, 'spots/restaurant_profile.html', {'restaurant': r})
-"""
+def spots(request):
+    spot_list = Spot.objects.all()
+    return render(request, 'spots/spot_list.html', {'item_list': spot_list})
+
+def restaurant_profile(request, spot_slug):
+    r = get_object_or_404(Spot, slug=spot_slug)
+    return render(request, 'spots/spot_profile.html', {'spot': s})
