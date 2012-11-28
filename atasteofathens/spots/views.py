@@ -1,14 +1,14 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from atasteofathens.spots.models import Restaurant
+from atasteofathens.spots.models import Spot
 
 def index(request):
     if request.user.is_authenticated():
         return render(request, 'spots/user_profile.html', {'user': request.user})
     else:
         return render(request, 'spots/index.html')
-
+"""
 @login_required
 def users(request):
     user_list = User.objects.all()
@@ -35,11 +35,12 @@ def user_rate(request, user_name):
     return render(request, 'spots/user_rate.html', 
                              {'user': u,
                               'user_ratings': user_ratings})
-
+"""
 def restaurants(request):
-    restaurant_list = Restaurant.objects.all()
+    restaurant_list = Spot.objects.all()
     return render(request, 'spots/restaurant_list.html', {'item_list': restaurant_list})
-
+"""
 def restaurant_profile(request, restaurant_slug):
     r = get_object_or_404(Restaurant, slug=restaurant_slug)
     return render(request, 'spots/restaurant_profile.html', {'restaurant': r})
+"""

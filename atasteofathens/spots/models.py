@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User as AuthUser
 from tools import unique_slugify
 
+from mongoengine import *
+from mongoengine_extras.fields import AutoSlugField
+"""
 class Neighbourhood(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
@@ -10,15 +13,18 @@ class Neighbourhood(models.Model):
 
     def __unicode__(self):
         return self.name
+"""
+class Spot(Document):
+    name = StringField(max_length=200, required=True)
+    address = StringField(max_length=200)
+    slug = AutoSlugField(populate_from='name')
 
-class Place(models.Model):
-    address = models.CharField(max_length=200)
-    neighbourhood = models.ForeignKey(Neighbourhood)
-    phone = models.CharField(max_length=20, blank=True)
+   # neighbourhood = models.ForeignKey(Neighbourhood)
+  #  phone = models.CharField(max_length=20, blank=True)
 
-    class Meta:
-        abstract = True
-
+  #  class Meta:
+  #      abstract = True
+"""
 class EatCategory(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
@@ -28,7 +34,7 @@ class EatCategory(models.Model):
     def __unicode__(self):
         return self.name
 
-class Eat(Place):
+class Restaurant(Place):
     name = models.CharField(max_length=200)
     category = models.ForeignKey(RestaurantCat)
     PRICE_RANGES = (
@@ -154,3 +160,4 @@ class Rating(models.Model):
 
     def __unicode__(self):
         return self.user.username + " has rated '" + self.restaurant.name + "'"
+"""
