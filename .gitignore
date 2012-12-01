@@ -3,7 +3,6 @@
 *.pot
 .DS_Store
 *.swp
-manage.py
 sqlite3.db
 *.log
 *.sql
