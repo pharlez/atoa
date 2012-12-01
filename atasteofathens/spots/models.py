@@ -1,9 +1,21 @@
 from django.db import models
-from django.contrib.auth.models import User as AuthUser
-from tools import unique_slugify
 
 from mongoengine import *
 from mongoengine_extras.fields import AutoSlugField
+
+class ServiceFood(EmbeddedDocument):
+    category = StringField(max_length=100)
+    delivery = BooleanField()
+    take_out = BooleanField()
+
+class ServiceBar(EmbeddedDocument):
+    # happyhour?
+    best_nights = ListField(StringField(max_length=50))
+    good_for_dancing = BooleanField()
+
+#class ServiceCoffee(EmbeddedDocument):
+
+#class ServiceClub(EmbeddedDocument):
 
 class Spot(Document):
     name = StringField(max_length=200, required=True)
@@ -11,7 +23,18 @@ class Spot(Document):
     neighbourhood = StringField(max_length=200)
     phone = StringField(max_length=20)
     website = StringField(max_length=200)
-    """
+    location = GeoPointField()
+    SERVICE_CHOICES = (
+            ServiceFood,
+            ServiceBar,
+            # ServiceCoffee,
+            # ServiceClub,
+    )
+    services = ListField(
+                    GenericEmbeddedDocumentField(
+                        choices=SERVICE_CHOICES
+                    )
+               )
     PRICE_RANGES = (
             (1, '$'),
             (2, '$$'),
@@ -20,6 +43,7 @@ class Spot(Document):
             (5, '$$$$$'),
     )
     price = IntField(choices=PRICE_RANGES)
+    music = ListField(StringField(max_length=50))
     wi_fi = BooleanField()
     credit_card = BooleanField()
     wheelchair = BooleanField()
@@ -42,24 +66,13 @@ class Spot(Document):
     group_friendly = BooleanField()
     date_friendly = BooleanField()
     reservations = BooleanField()
-    slug = AutoSlugField(populate_from='name')
-    """
-    # music?
-    # location?
+    face_control = BooleanField()
 
-#class Details(EmbeddedDocument):
-    # food details
-   # category = StringField(max_length=100)
-   # delivery = BooleanField()
-    #take_out = BooleanField()
+    slug = AutoSlugField(populate_from='name')
+    
+
     ## alcohol?
     ## hours?
-
-    # bar details
-
-    # coffee details
-
-    # club details
 
 """
 class Rating(models.Model):
