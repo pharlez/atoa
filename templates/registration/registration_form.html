@@ -8,6 +8,7 @@
 <p>{{ form.errors }}</p>
 {% endif %}
 
+{% comment %}
 <form method="post" action="{% url 'registration_register' %}">
 {% csrf_token %}
 <table>
@@ -31,6 +32,14 @@
 
 <input type="submit" value="register" />
 <input type="hidden" name="next" value="{{ next }}" />
+{% endcomment %}
+
+<form method="post" action="{% url 'registration_register' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <input type="submit" value="register" />
+</form>
 
 {% endblock %}
 
