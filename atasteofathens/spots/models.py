@@ -4,26 +4,14 @@ from tools import unique_slugify
 
 from mongoengine import *
 from mongoengine_extras.fields import AutoSlugField
-"""
-class Neighbourhood(models.Model):
-    name = models.CharField(max_length=100, unique=True)
 
-    class Meta:
-        ordering = ['name']
-
-    def __unicode__(self):
-        return self.name
-"""
 class Spot(Document):
     name = StringField(max_length=200, required=True)
     address = StringField(max_length=200)
+    neighbourhood = StringField(max_length=200)
+    phone = StringField(max_length=20)
     slug = AutoSlugField(populate_from='name')
 
-   # neighbourhood = models.ForeignKey(Neighbourhood)
-  #  phone = models.CharField(max_length=20, blank=True)
-
-  #  class Meta:
-  #      abstract = True
 """
 class EatCategory(models.Model):
     name = models.CharField(max_length=100, unique=True)
